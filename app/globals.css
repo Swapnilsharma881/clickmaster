@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  body {
+    @apply bg-primary text-accent; /* Tailwind color utilities */
+    font-family: 'MadeMirage','Lato','Domaine', 'Lexend', serif; /* Custom fonts with fallbacks */
+  }
+}
+
+
+
+/* Font Definitions */
+@font-face {
+  font-family: 'Domaine';
+  src: url('/font/domaine/black.woff2') format('woff2');
+  font-weight: 900; /* Black font weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Domaine';
+  src: url('/font/domaine/bolditalic.woff2') format('woff2');
+  font-weight: 700; /* Bold font weight */
+  font-style: italic; /* Italic style */
+}
+
+@font-face {
+  font-family: 'Domaine';
+  src: url('/font/domaine/regular.woff2') format('woff2'); /* Correct path for regular font */
+  font-weight: 400; /* Regular font weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/font/lexend/regular.woff2') format('woff2'); /* Correct path for Lexend */
+  font-weight: 400; /* Regular font weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/font/lato/lato_light.woff2') format('woff2'); /* Correct path for Lexend */
+  font-weight: 300; /* Regular font weight */
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('/font/lato/lato_hairline.woff2') format('woff2'); /* Correct path for Lexend */
+  font-weight: 100; /* Regular font weight */
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('/font/lato/lato_bold.woff2') format('woff2'); /* Correct path for Lexend */
+  font-weight: 700; /* Regular font weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MadeMirage';
+  src: url('/font/madeMirage/light.woff2') format('woff2'); /* Correct path for Lexend */
+  font-weight: 300; /* Regular font weight */
+  font-style: normal;
+}
+
+
+:root {
+  --font-Lexend: 'Lexend', sans-serif;
+  --font-Domaine: 'Domaine', serif;
+}
+
+/* Tailwind Config Recommendation (to be added in tailwind.config.js):
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        domaine: ['Domaine', 'Times New Roman', 'serif'], // Custom font family for Domaine
+        lexend: ['Lexend', 'Arial', 'sans-serif'], // Custom font family for Lexend
+      },
+    },
+  },
+};
+*/
+
+/* Example Usage in HTML:
+  <h1 class="font-domaine font-bold text-xl">Heading with Domaine Font</h1>
+  <p class="font-lexend text-base">Text with Lexend font</p>
+*/
