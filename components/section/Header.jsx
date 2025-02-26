@@ -15,7 +15,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="z-40  sticky px-5 sm:px-10 xl:px-20 top-0 py-8 xl:py-12 text-accent border-b-2 border-accent bg-primary">
+    <header className=" fixed bg-primary top-0 z-40 flex flex-col justify-between items-center sticky px-5 sm:px-10 xl:px-20 py-8 xl:py-5 text-accent ">
       <div className="container mx-auto  flex justify-between items-center">
         {/*Logo*/}
         <Link href="/">
@@ -30,7 +30,7 @@ const Header = () => {
         <div className=" hidden xl:flex  gap-10 items-center ">
           <Nav />
           <Link href="/contact">
-            <button className="btn-primary px-2 py-2 text-white rounded-sm bg-accent-hover hover:bg-accent-hover">Hire Me</button>
+            <button className="btn-primary px-2 py-2 text-white rounded-sm bg-accent-hover hover:bg-accent">Hire Me</button>
           </Link>
         </div>
         {/*Mobile Nav*/}

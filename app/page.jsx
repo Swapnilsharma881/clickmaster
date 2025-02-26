@@ -1,12 +1,10 @@
-
-import React from "react";
-import HeroSection from "../components/section/HeroSection"; // Adjust the path if necessary
-import Caraousel from "@/components/section/Caraousel";
+import HeroSection from "@/components/section/HeroSection"; // Adjust the path if necessary
+import Clients from "@/components/section/Clients";
 const Home = () => {
   return (
     <>
     <HeroSection />
-    <Caraousel/>  
+    <Clients/>
     </>
   )
 }
