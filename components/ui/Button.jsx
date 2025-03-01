@@ -6,7 +6,7 @@ function Button({className,name}) {
         console.log("see More")
     )
     return (
-        <button className={className} onClick={handleClick}>{name}</button>
+        <button className={className} onClick={handleClick} >{name}</button>
     )
 }
 

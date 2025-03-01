@@ -5,7 +5,7 @@ const HeroSection = () => {
  
 
   return (
-    <section  className=" bg-primary text-accent w-full ">
+    <section  className="border border-black bg-primary text-accent w-full ">
       <div className=" h-[100vh] overflow-hidden">
         <img
           className=" inset-0 w-full h-full object-cover"
