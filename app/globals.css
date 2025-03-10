@@ -5,6 +5,8 @@
 /* Base Styles */
 @layer base {
   body {
+    margin: 0%;
+    overflow: hidden;
     @apply bg-primary text-accent; /* Tailwind color utilities */
     font-family: 'MadeMirage','Lato','Domaine', 'Lexend', serif; /* Custom fonts with fallbacks */
   }
@@ -73,20 +75,4 @@
   --font-Domaine: 'Domaine', serif;
 }
 
-/* Tailwind Config Recommendation (to be added in tailwind.config.js):
-module.exports = {
-  theme: {
-    extend: {
-      fontFamily: {
-        domaine: ['Domaine', 'Times New Roman', 'serif'], // Custom font family for Domaine
-        lexend: ['Lexend', 'Arial', 'sans-serif'], // Custom font family for Lexend
-      },
-    },
-  },
-};
-*/
 
-/* Example Usage in HTML:
-  <h1 class="font-domaine font-bold text-xl">Heading with Domaine Font</h1>
-  <p class="font-lexend text-base">Text with Lexend font</p>
-*/

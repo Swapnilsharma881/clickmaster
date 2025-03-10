@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Nav from "../Nav";
 import { useEffect } from "react";
-const Links = {};
+
 
 const Header = () => {
   useEffect(() => {

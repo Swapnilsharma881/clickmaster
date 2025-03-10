@@ -1,11 +1,14 @@
-const Services = () => {
+import HeroSection from "@/components/section/HeroSection";
+
+const Gallery = () => {
     return (
       <>
-<div>services</div>  
+    <HeroSection />
+
       </>
     )
   }
   
   
-  export default Services;
+  export default Gallery;
   

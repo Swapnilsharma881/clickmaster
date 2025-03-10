@@ -1,10 +1,10 @@
-import HeroSection from "@/components/section/HeroSection"; // Adjust the path if necessary
-import Form from "@/components/section/Form";
+import Cursor from "@/components/ui/Cursor";
+
 const Home = () => {
   return (
     <>
-    <HeroSection />
-    <Form/>
+    <Cursor/>
+
     </>
   )
 }

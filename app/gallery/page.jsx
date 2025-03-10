@@ -1,7 +1,10 @@
+import HeroSection from "@/components/section/HeroSection";
+
 const Gallery = () => {
     return (
       <>
-<div>gallery</div>  
+    <HeroSection />
+
       </>
     )
   }
