@@ -29,9 +29,9 @@ const Header = () => {
         {/*Desktop Nav & Hire Me Button*/}
         <div className=" hidden xl:flex  gap-10 items-center ">
           <Nav />
-          <Link href="/contact">
-            <button className="btn-primary px-2 py-2 text-white rounded-sm bg-accent-hover hover:bg-accent">Hire Me</button>
-          </Link>
+            <Link href="/contact">
+              <button className="btn-primary px-2 py-2 text-white rounded-sm bg-accent-hover hover:bg-accent">Hire Me</button>
+            </Link>
         </div>
         {/*Mobile Nav*/}
         <div className="xl:hidden"><img src="/icons/burgerMenu.svg" alt="Menu" className="w-6 h-6" /></div>
