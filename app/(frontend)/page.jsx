@@ -1,9 +1,14 @@
-import Gallery3d from "@/components/3d/Gallery3d";
+import Carousel from "@/components/section/Caraousel";
+import Clients from "@/components/section/Clients";
+import HeroSection from "@/components/section/HeroSection";
 
 
 const Home = () => {
   return (
     <>
+    <HeroSection/>
+    <Carousel/>
+    <Clients/>
     </>
   )
 }

@@ -59,7 +59,7 @@ export default function Carousel() {
     <section
       className="border border-black px-5 sm:px-10 xl:px-20 top-0 py-8 w-full xl:py-12"
     >
-      <div className="relative w-full h-[90vh] overflow-hidden">
+      <div className="relative w-full h-[30vh] sm:h-[90vh] overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           {!isLoading && (
             <motion.div

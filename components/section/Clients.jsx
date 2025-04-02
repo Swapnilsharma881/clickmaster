@@ -20,8 +20,8 @@ function Clients() {
 
 return(
 
-    <section className=" border border-black px-5 sm:px-10 xl:px-20 top-0 py-8 h-auto w-full xl:py-5 relative">
-        <div className="h-full overflow-hidden ">
+    <section className="border border-black px-5 sm:px-10 xl:px-20 top-0 py-8 h-auto w-full xl:py-5 relative">
+        <div className="h-auto overflow-hidden ">
             {
                 clientsData.map((client,index) => (
                     <Client key={index} clientsData={client}/>
