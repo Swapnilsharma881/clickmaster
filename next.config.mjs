@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
-    trailingSlash: true, // Ensures trailing slashes in URLs
-    assetPrefix: '/', // Ensures correct asset path resolution
+    trailingSlash: true,
+    assetPrefix: '/', 
     images: {
-      domains: ["picsum.photos"], // ✅ Allow external images from picsum.photos
+      domains: ["picsum.photos"], 
     },
   };
   

@@ -4,86 +4,103 @@
 
 /* Base Styles */
 @layer base {
-/* Hide scrollbar for all browsers */
-html {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer and Edge */
-}
+  /* Hide scrollbar for all browsers */
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+  }
 
-/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
-html::-webkit-scrollbar {
-  display: none;
-}
-
+  /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+  html::-webkit-scrollbar {
+    display: none;
+  }
 
   body {
     margin: 0%;
-    @apply bg-primary text-accent; /* Tailwind color utilities */
-    font-family: 'MadeMirage','Lato','Domaine', 'Lexend', serif; /* Custom fonts with fallbacks */
+    @apply bg-backGround;
+    font-family: 'MadeMirage','Lato','Domaine', 'Lexend', serif;
   }
 }
-
-
 
 /* Font Definitions */
 @font-face {
   font-family: 'Domaine';
   src: url('/font/domaine/black.woff2') format('woff2');
-  font-weight: 900; /* Black font weight */
+  font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Domaine';
   src: url('/font/domaine/bolditalic.woff2') format('woff2');
-  font-weight: 700; /* Bold font weight */
-  font-style: italic; /* Italic style */
+  font-weight: 700;
+  font-style: italic;
 }
 
 @font-face {
   font-family: 'Domaine';
-  src: url('/font/domaine/regular.woff2') format('woff2'); /* Correct path for regular font */
-  font-weight: 400; /* Regular font weight */
+  src: url('/font/domaine/regular.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Lexend';
-  src: url('/font/lexend/regular.woff2') format('woff2'); /* Correct path for Lexend */
-  font-weight: 400; /* Regular font weight */
+  src: url('/font/lexend/regular.woff2') format('woff2');
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Lato';
-  src: url('/font/lato/lato_light.woff2') format('woff2'); /* Correct path for Lexend */
-  font-weight: 300; /* Regular font weight */
+  src: url('/font/lato/lato_light.woff2') format('woff2');
+  font-weight: 300;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
-  src: url('/font/lato/lato_hairline.woff2') format('woff2'); /* Correct path for Lexend */
-  font-weight: 100; /* Regular font weight */
+  src: url('/font/lato/lato_hairline.woff2') format('woff2');
+  font-weight: 100;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
-  src: url('/font/lato/lato_bold.woff2') format('woff2'); /* Correct path for Lexend */
-  font-weight: 700; /* Regular font weight */
+  src: url('/font/lato/lato_bold.woff2') format('woff2');
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'MadeMirage';
-  src: url('/font/madeMirage/light.woff2') format('woff2'); /* Correct path for Lexend */
-  font-weight: 300; /* Regular font weight */
+  src: url('/font/madeMirage/light.woff2') format('woff2');
+  font-weight: 300;
   font-style: normal;
 }
-
 
 :root {
   --font-Lexend: 'Lexend', sans-serif;
   --font-Domaine: 'Domaine', serif;
 }
 
+/* Lenis Smooth Scroll Styles */
+html.lenis {
+  height: auto;
+}
 
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

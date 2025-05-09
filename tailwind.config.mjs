@@ -1,5 +1,6 @@
 import tailwindcssAnimate from "tailwindcss-animate";
 import typography from "@tailwindcss/typography";
+import { hover } from "motion";
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -11,17 +12,21 @@ const config = {
   ],
   theme: {
     extend: {
+      transitionDuration: {
+        '5000': '1500ms', // 5 seconds
+      },
       fontSize: {
         base: "16px",
         sm: "18px",
       },
       colors: {
-        primary: "#FAF2EB",
-        accent: {
-          DEFAULT: "#311514",
-          hover: "#8A2432",
-        },
-        whiteBg: "#FFFFFF",
+        primary : "#311514",
+        hover: "#8B2634",
+        backGround: "#FAF2EB",
+        border : "#160403",
+        h1: "#BF8A46",
+        white:"#FFFFFF",
+        black:"#000000",
       },
       borderRadius: {
         lg: "var(--radius)",

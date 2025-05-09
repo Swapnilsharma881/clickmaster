@@ -4,11 +4,11 @@ import { useState, useRef } from "react";
 
 const images = [
   "https://picsum.photos/id/1/1920/1080",
-  "https://picsum.photos/id/2/1920/1080",
-  "https://picsum.photos/id/3/1920/1080",
-  "https://picsum.photos/id/4/1920/1080",
-  "https://picsum.photos/id/5/1920/1080",
-  "https://picsum.photos/id/6/1920/1080",
+  "https://picsum.photos/id/1/1920/1080",
+  "https://picsum.photos/id/1/1920/1080",
+  "https://picsum.photos/id/1/1920/1080",
+  "https://picsum.photos/id/1/1920/1080",
+  "https://picsum.photos/id/1/1920/1080",
 ];
 
 export default function Carousel() {
@@ -57,7 +57,7 @@ export default function Carousel() {
 
   return (
     <section
-      className="border border-black px-5 sm:px-10 xl:px-20 top-0 py-8 w-full xl:py-12"
+      className="px-5 sm:px-10 xl:px-20 top-0 py-8 w-full xl:py-12"
     >
       <div className="relative w-full h-[30vh] sm:h-[90vh] overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
@@ -82,13 +82,13 @@ export default function Carousel() {
         </AnimatePresence>
 
         <button
-          className="bg-accent p-2 text-white absolute bottom-5 left-5"
+          className="bg-accent p-2 text-primary absolute bottom-5 left-5"
           onClick={prevImage}
         >
           Prev
         </button>
         <button
-          className="bg-accent p-2 text-white absolute bottom-5 right-5"
+          className="bg-accent p-2 text-primary absolute bottom-5 right-5"
           onClick={nextImage}
         >
           Next

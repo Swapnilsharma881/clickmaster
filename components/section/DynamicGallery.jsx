@@ -41,7 +41,7 @@ export default function AnimatedGallery() {
   const [selectedMedia, setSelectedMedia] = useState(null);
 
   return (
-    <div className="border border-black p-10 space-y-20">
+    <div className=" p-10 space-y-20">
       {galleryData.map((category, index) => (
         <motion.div
           key={index}

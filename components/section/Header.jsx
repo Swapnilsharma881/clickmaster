@@ -7,7 +7,15 @@ import { useEffect } from "react";
 
 const Header = () => {
   useEffect(() => {
-    console.log("First Mounted");
+     
+    const cursor = document.getElementById("sticky")
+    console.log(cursor);
+    
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = (e.clientX - 10) + 'px';
+      cursor.style.top = (e.clientY - 10) + 'px';
+
+    })
     
       return () => {
         console.log("First Unmounted");
@@ -15,14 +23,15 @@ const Header = () => {
   }, []);
 
   return (
-    <header className=" fixed bg-primary top-0 z-40 flex flex-col justify-between items-center sticky px-5 sm:px-10 xl:px-20 py-8 xl:py-5 text-accent ">
+    <header className=" fixed bg-backGround top-0 z-40 flex flex-col justify-between items-center sticky px-5 sm:px-10 xl:px-20 py-8 xl:py-5">
+      <div id="sticky" className="h-[1px] w-[1px] absolute bg-black top-0 left-0 "></div>
       <div className="container mx-auto  flex justify-between items-center">
         {/*Logo*/}
         <Link href="/">
-          {" "}
+         {"  "}
           <h1 className="text-2xl font-display">
             {" "}
-            Click<span className="text-accent-hover">.Master</span>
+            Click<span className="text-primary">.Master</span>
           </h1>{" "}
         </Link>
 
@@ -30,7 +39,11 @@ const Header = () => {
         <div className=" hidden xl:flex  gap-10 items-center ">
           <Nav />
             <Link href="/contact">
-              <button className="btn-primary px-2 py-2 text-white rounded-sm bg-accent-hover hover:bg-accent">Hire Me</button>
+            <button className="group relative overflow-hidden px-3 py-2 bg-white text-primary border rounded-full">
+              <span className="relative z-10 transition-colors duration-5000 group-hover:text-white">Hire Me</span>
+              <span className="absolute top-0 left-0 w-full h-full bg-hover transform -translate-y-full  group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></span>
+            </button>
+
             </Link>
         </div>
         {/*Mobile Nav*/}

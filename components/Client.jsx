@@ -1,15 +1,18 @@
 import Button from "@/components/ui/Button";
 import Image from "next/image";
+import Link from "next/link";
 
-function Client(props) {
+function Client (props) {
   return (
     <div>
-      <div className="border border-black grid grid-cols-1 gap-0 md:grid-cols-1 lg:grid-cols-5 lg:grid-rows-1 lg:gap-20 sm:h-[100vh] items-center justify-between">
+      <div className="grid grid-cols-1 gap-0 md:grid-cols-1 lg:grid-cols-5 lg:grid-rows-1 lg:gap-20 sm:h-[100vh] items-center justify-between">
         <div className="py-5 sm:col-span-2 flex flex-col justify-between w-full order-2 sm:order-1">
-          <Button
+           <Link href={props.clientsData.url}>
+           <Button
             className="self-start py-1 px-2 bg-accent-hover w-auto text-white inline-block"
             name="View Project"
-          />
+          /></Link>
+          
           <p className="text-xl text-accent font-bold self-end">
             {props.clientsData.name}
           </p>
