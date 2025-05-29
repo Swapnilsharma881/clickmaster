@@ -1,10 +1,9 @@
-import HeroSection from "@/components/section/HeroSection";
+import Products from "@/components/section/Products";
 
 const Gallery = () => {
     return (
       <>
-    <HeroSection />
-
+      <Products/>
       </>
     )
   }

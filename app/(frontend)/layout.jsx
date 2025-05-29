@@ -1,7 +1,6 @@
 import "../styles/globals.css";
 import Header from "@/components/section/Header";
 import LenisWrapper from "@/components/utils/LenisWrapper"; // We'll make this next
-import PageTransition from "@/components/PageTransition";
 
 export const metadata = {
   title: "Create Next App",
@@ -15,12 +14,10 @@ export default function RootLayout({ children }) {
         
       </head>
       <body>
-      <PageTransition>
         <LenisWrapper>
           <Header />
           {children}
         </LenisWrapper>
-        </PageTransition>
       </body>
     </html>
   );

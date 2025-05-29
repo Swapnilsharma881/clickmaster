@@ -1,10 +1,9 @@
-import HeroSection from "@/components/section/HeroSection";
+import DynamicGallery from "@/components/section/DynamicGallery";
 
 const Gallery = () => {
     return (
       <>
-    <HeroSection />
-
+        <DynamicGallery/>
       </>
     )
   }

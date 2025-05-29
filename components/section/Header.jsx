@@ -8,30 +8,18 @@ import { useEffect } from "react";
 const Header = () => {
   useEffect(() => {
      
-    const cursor = document.getElementById("sticky")
-    console.log(cursor);
-    
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = (e.clientX - 10) + 'px';
-      cursor.style.top = (e.clientY - 10) + 'px';
-
-    })
-    
-      return () => {
-        console.log("First Unmounted");
-      };
+   
   }, []);
 
   return (
     <header className=" fixed bg-backGround top-0 z-40 flex flex-col justify-between items-center sticky px-5 sm:px-10 xl:px-20 py-8 xl:py-5">
-      <div id="sticky" className="h-[1px] w-[1px] absolute bg-black top-0 left-0 "></div>
       <div className="container mx-auto  flex justify-between items-center">
         {/*Logo*/}
         <Link href="/">
          {"  "}
           <h1 className="text-2xl font-display">
             {" "}
-            Click<span className="text-primary">.Master</span>
+            Clickk<span className="text-primary">.Master</span>
           </h1>{" "}
         </Link>
 

@@ -1,14 +1,13 @@
-import HeroSection from "@/components/section/HeroSection";
+'use client';
+
+import Form from "@/components/ui/Form";
 
 const Contact = () => {
-    return (
-      <>
-    <HeroSection />
+  return (
+    <>
+     <Form/>
+    </>
+  );
+};
 
-      </>
-    )
-  }
-  
-  
-  export default Contact;
-  
+export default Contact;

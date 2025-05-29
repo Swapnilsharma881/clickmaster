@@ -2,9 +2,9 @@
 
 function Button({className,name}) {
 
-    const handleClick  = () => (
-        console.log("see More")
-    )
+    const handleClick  = () => ({
+        
+    })
     return (
         <button className={className} onClick={handleClick} >{name}</button>
     )

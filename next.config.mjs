@@ -4,7 +4,7 @@ const nextConfig = {
     trailingSlash: true,
     assetPrefix: '/', 
     images: {
-      domains: ["picsum.photos"], 
+      domains: ['kqoiszdheczrpsfxutiw.supabase.co'], 
     },
   };
   
