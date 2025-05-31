@@ -1,6 +1,6 @@
 import "../styles/globals.css";
-import Header from "@/components/section/Header";
-import LenisWrapper from "@/components/utils/LenisWrapper"; // We'll make this next
+import Header from "@/section/Header";
+import LenisWrapper from "@/utils/LenisWrapper"; // We'll make this next
 
 export const metadata = {
   title: "Create Next App",

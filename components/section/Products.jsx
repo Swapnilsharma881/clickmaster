@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { supabase } from "../../app/lib/supabaseClient";
-import Product from "../Product";
+import { supabase } from "app/lib/supabaseClient";
+import Product from "@/Product";
 
 export default function Categories() {
   const [categoryData, setCategoryData] = useState([]);

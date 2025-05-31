@@ -1,4 +1,4 @@
-import Products from "@/components/section/Products";
+import Products from "@/section/Products";
 
 const Gallery = () => {
     return (

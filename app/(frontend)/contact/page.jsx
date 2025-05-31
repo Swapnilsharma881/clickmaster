@@ -1,11 +1,11 @@
 'use client';
 
-import Form from "@/components/ui/Form";
+import InquiryForm from "@/ui/InquiryForm";
 
 const Contact = () => {
   return (
     <>
-     <Form/>
+     <InquiryForm/>
     </>
   );
 };

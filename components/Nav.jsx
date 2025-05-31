@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 const links = [
-  { name: "Gallery", path: "/gallery" },
-  { name: "Services", path: "/services" },
+  { name: "Contact", path: "/contact" },
+  { name: "portfolio", path: "/portfolio" },
 
 ];
 

@@ -1,8 +1,6 @@
-import Carousel from "@/components/section/Caraousel";
-import Clients from "@/components/section/Products";
-import HeroSection from "@/components/section/HeroSection";
-import DynamicGallery from "@/components/section/DynamicGallery"
-import Gallery from "@/components/section/Gallery";
+import HeroSection from "@/section/HeroSection";
+import FeaturedWork from "@/section/FeaturedWork"
+import MeetTheMan from "@/section/MeetTheMan"
 
 const Home =  () => {
 
@@ -10,6 +8,8 @@ const Home =  () => {
   return (
     <>
     <HeroSection/>
+    <FeaturedWork/>
+    <MeetTheMan/>
     </>
   )
 }
