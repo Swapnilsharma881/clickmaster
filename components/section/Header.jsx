@@ -5,9 +5,6 @@ import Nav from "@/Nav";
 import { useState } from "react";
 import Image from "next/image";
 
-import burgerMenu from "public/icons/burgerMenu.svg";
-import closeMenu from "public/icons/closeMenu.svg";
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -39,7 +36,7 @@ const Header = () => {
         <div className="xl:hidden">
           <button onClick={toggleMenu}>
             <Image
-              src={isOpen ? closeMenu : burgerMenu}
+              src={isOpen ? "/icons/closeMenu.svg" : "/icons/burgerMenu.svg"}
               alt="Mobile Menu Toggle"
               width={24}
               height={24}
@@ -58,7 +55,7 @@ const Header = () => {
             <span className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Services</span>
           </Link>
           <Link href="/contact" onClick={() => setIsOpen(false)}>
-            <span className="block px-4 py-2 text-gray-700 hover:bg-gray-100">contact</span>
+            <span className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact</span>
           </Link>
         </div>
       )}
