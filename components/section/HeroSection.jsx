@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
-import { supabase } from "app/lib/supabaseClient"; // adjust path if needed
+import { supabase } from "app/lib/supabaseClient";
 import gsap from "gsap";
 
 const HeroSection = () => {
@@ -10,7 +10,7 @@ const HeroSection = () => {
   useEffect(() => {
     const fetchHeroImage = async () => {
       const { data, error } = await supabase.storage
-        .from("featured")
+        .from("personal")
         .getPublicUrl("hero.webp");
 
       if (error) {
@@ -36,7 +36,7 @@ const HeroSection = () => {
       });
     }, heroRef);
 
-    return () => ctx.revert(); // Cleanup GSAP
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -46,25 +46,29 @@ const HeroSection = () => {
     >
       {/* Hero Background Image */}
       {heroImage && (
-        <img
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
-          src={heroImage}
-          alt="Hero background"
-        />
-      )}
+  <img
+  src={heroImage}
+  alt="Hero background"
+  className="
+    absolute inset-0 w-full h-full
+    object-cover
+    sm:object-left
+    transition-all duration-700 ease-in-out
+  "
+/>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
+)}
 
+      
       {/* Hero Text */}
-      <div className="relative z-20 flex flex-col justify-center items-center h-full px-4 text-center">
+      <div className="relative z-20 flex flex-col justify-center items-center h-full px-5 sm:px-10 xl:px-20  text-center">
         <h1
           id="hero-text"
-          className="text-white text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight"
+          className="text-primary text-4xl sm:text-5xl  xl:text-7xl font-extrabold tracking-tight leading-tight max-w-5xl"
         >
-        Framing Taste, Defining Excellence
+          Framing Taste, Defining Excellence
         </h1>
-        <p className="mt-4 text-white text-lg sm:text-xl max-w-xl">
+        <p className="mt-4 text-h1 text-base sm:text-lg md:text-xl max-w-2xl">
           Expertly crafted imagery for gourmet dishes and fine products.
         </p>
       </div>

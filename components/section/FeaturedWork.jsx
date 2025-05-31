@@ -2,48 +2,54 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "app/lib/supabaseClient";
 import Link from "next/link";
-import FeaturedImageBlock from "@/ui/FeaturedImageBlock"; // adjust path as neededFeaturedImageBlock
+import FeaturedImageBlock from "@/ui/FeaturedImageBlock";
 
 const FeaturedWork = () => {
   const [featuredImages, setFeaturedImages] = useState([]);
+  const [isLgOrAbove, setIsLgOrAbove] = useState(false);
 
   useEffect(() => {
     const fetchImages = async () => {
-      const { data, error } = await supabase.storage
-        .from("featured")
-        .list("", { limit: 10, sortBy: { column: "name", order: "asc" } });
+      const { data, error } = await supabase
+        .from("featured_images")
+        .select("name, description, kahani, image_url")
+        .order("created_at", { ascending: true });
 
       if (error) {
         console.error("Error fetching images:", error.message);
         return;
       }
 
-      const imageUrls = data.map((file) => ({
-        title: file.name.split(".")[0],
-        description: "This is one of our standout visuals.",
-        image: supabase.storage.from("featured").getPublicUrl(file.name).data
-          .publicUrl,
-      }));
-
-      setFeaturedImages(imageUrls);
+      setFeaturedImages(data);
     };
 
     fetchImages();
   }, []);
 
+  // Detect screen width to switch between `description` and `kahani`
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLgOrAbove(window.innerWidth >= 1024);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   return (
-    <section className="bg-white py-16 px-4 sm:px-8">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-800">
+    <section className="relative bg-white py-16 px-4 sm:px-8">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center lg:mb-14 mb-12 text-primary">
         Featured Work
       </h2>
 
-      <div className="grid gap-12 sm:gap-16">
+      <div className="grid grid-cols-1 gap-20">
         {featuredImages.map((item, index) => (
           <FeaturedImageBlock
             key={index}
-            image={item.image}
-            title={item.title}
-            description={item.description}
+            image={item.image_url}
+            title={item.name}
+            description={isLgOrAbove ? item.kahani : item.description}
             reverse={index % 2 !== 0}
           />
         ))}

@@ -34,7 +34,7 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       screens: {
-        sm: "640px",
+        sm: "480px",
         md: "768px",
         lg: "1020px",
         xl: "1200px",

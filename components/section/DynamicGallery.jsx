@@ -11,7 +11,7 @@ export default function DynamicGallery({ folder }) {
   useEffect(() => {
     async function fetchImages() {
       const bucket = "media";
-      const path = `${folder}/`; // e.g. "decor/", "wedding/"
+      const path = `${folder}/`;
 
       const { data, error } = await supabase.storage.from(bucket).list(path);
 
@@ -36,33 +36,24 @@ export default function DynamicGallery({ folder }) {
     fetchImages();
   }, [folder]);
 
-  if (loading) return <p className="text-center">Loading images...</p>;
+  if (loading) return <p className="text-center text-gray-500">Loading...</p>;
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl font-semibold capitalize mb-6">
-        Category: {folder}
+    <section className="px-5 sm:px-10 xl:px-20">
+      <div className="py-16  max-w-6xl ">
+      <h2 className="text-2xl font-medium mb-8 text-gray-800 capitalize text-center">
+        {folder.replace(/-/g, " ")}
       </h2>
-      <div className="columns-2 sm:columns-3 md:columns-4 gap-4 space-y-4">
+
+      <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-2 gap-2">
         {images.map((url, idx) => (
-          <div key={idx} className="relative group cursor-pointer">
+          <div key={idx} className="relative cursor-pointer rounded-md overflow-hidden shadow-sm group">
             <img
               src={url}
               alt={`Image ${idx + 1}`}
-              className="w-full aspect-square object-cover rounded shadow opacity-100 transition-opacity duration-300 group-hover:opacity-60"
+              className="w-full aspect-square object-cover rounded-md transition-opacity duration-300 group-hover:opacity-80"
               onClick={() => setSelectedImage(url)}
             />
-            {/* Centered plus icon */}
-            <div
-              className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-0 transition duration-300"
-              onClick={() => setSelectedImage(url)}
-            >
-              <img
-                src="/icons/plus.svg"
-                alt="View Fullscreen"
-                className="w-12 h-12  p-2 "
-              />
-            </div>
           </div>
         ))}
       </div>
@@ -70,16 +61,17 @@ export default function DynamicGallery({ folder }) {
       {/* Fullscreen Overlay */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-zoom-out"
           onClick={() => setSelectedImage(null)}
         >
           <img
             src={selectedImage}
-            alt="Fullscreen View"
-            className="max-w-full max-h-full rounded hover:scale-2"
+            alt="Enlarged"
+            className="max-w-[90vw] max-h-[90vh] rounded-lg shadow-xl transition-transform duration-300"
           />
         </div>
       )}
     </div>
+    </section>
   );
 }
