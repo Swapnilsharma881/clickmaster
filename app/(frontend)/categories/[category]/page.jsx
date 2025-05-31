@@ -1,54 +1,41 @@
-"use client";
+'use client'
+import { supabase } from '../../../lib/supabaseClient'
+import { useEffect, useState } from 'react'
 
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { supabase } from "@/app/lib/supabaseClient";
-
-export default function CategoryPage() {
-  const params = useParams();
-  const category = params.category;
-  const fileNames = Array.from({ length: 6 }, (_, i) => `${i + 1}.webp`);
-
-  const bucketName = "media";
-
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function FolderGallery({ folder }) {
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    async function fetchCategoryImages() {
-      const urls = fileNames.map((file) => {
-        const { data } = supabase
-          .storage
-          .from(bucketName)
-          .getPublicUrl(`${category}/${file}`);
-        return {
-          name: file,
-          url: data.publicUrl,
-        };
-      });
+    async function fetchImages() {
+      
+      const bucketName = "media";
+      const filePath = ""; // ✅ full path: "decor/"
+      const { data, error } = await supabase.storage
+        .from(bucketName)
+        .list(filePath);
 
-      setImages(urls);
-      setLoading(false);
+      if (error) {
+        console.error('Failed to list files:', error.message)
+      } else {
+         // ✅ save listed files
+        console.log('Fetched images:', data)  // Debugging: log fetched images
+      }
+
+      setLoading(false)
+      return data;
     }
 
-    if (category) fetchCategoryImages();
-  }, [category]);
+    const d = fetchImages()
+  }, [folder])
 
-  if (loading) return <p>Loading images...</p>;
+  if (loading) return <p>Loading...</p>
 
   return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold mb-6">Category: {category}</h1>
-      <div className="grid grid-cols-3 gap-4">
-        {images.map((img) => (
-          <img
-            key={img.name}
-            src={img.url}
-            alt={img.name}
-            className="w-full h-auto object-cover rounded"
-          />
-        ))}
+    <div className="p-4">
+      <h2 className="text-xl font-bold capitalize mb-4">Category:</h2>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        
       </div>
     </div>
-  );
+  )
 }
