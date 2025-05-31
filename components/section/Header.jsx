@@ -17,6 +17,7 @@ const Header = () => {
           <h1 className="text-2xl font-display">
             Clickk<span className="text-primary">Master</span>
           </h1>
+          
         </Link>
 
         {/* Desktop Nav */}
