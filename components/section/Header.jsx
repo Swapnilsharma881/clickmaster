@@ -51,8 +51,8 @@ const Header = () => {
           <Link href="/" onClick={() => setIsOpen(false)}>
             <span className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Home</span>
           </Link>
-          <Link href="/services" onClick={() => setIsOpen(false)}>
-            <span className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Services</span>
+          <Link href="/Portfolio" onClick={() => setIsOpen(false)}>
+            <span className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Portfolio</span>
           </Link>
           <Link href="/contact" onClick={() => setIsOpen(false)}>
             <span className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Contact</span>

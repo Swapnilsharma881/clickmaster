@@ -1,6 +1,6 @@
 import Products from "@/section/Products";
 
-const Gallery = () => {
+const Portfolio = () => {
     return (
       <>
       <Products/>
@@ -9,5 +9,5 @@ const Gallery = () => {
   }
   
   
-  export default Gallery;
+  export default Portfolio;
   
