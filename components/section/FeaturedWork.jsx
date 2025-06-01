@@ -13,7 +13,7 @@ const FeaturedWork = () => {
       const { data, error } = await supabase
         .from("featured_images")
         .select("name, description, kahani, image_url")
-        .order("created_at", { ascending: true });
+        .order("id", { ascending: true });
 
       if (error) {
         console.error("Error fetching images:", error.message);
