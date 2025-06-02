@@ -1,6 +1,7 @@
 import HeroSection from "@/section/HeroSection";
 import FeaturedWork from "@/section/FeaturedWork"
 import MeetTheMan from "@/section/MeetTheMan"
+import BrandMarquee from "@/section/BrandMarquee";
 
 const Home =  () => {
 
@@ -10,6 +11,7 @@ const Home =  () => {
     <HeroSection/>
     <FeaturedWork/>
     <MeetTheMan/>
+    <BrandMarquee/>
     </>
   )
 }

@@ -36,42 +36,50 @@ export default function DynamicGallery({ folder }) {
     fetchImages();
   }, [folder]);
 
-  if (loading) return <p className="text-center text-gray-500">Loading...</p>;
+  if (loading)
+    return (
+      <p className="text-center text-gray-500 select-none">Loading...</p>
+    );
 
   return (
-    <section className="px-5 sm:px-10 xl:px-20">
-      <div className="py-16  max-w-6xl ">
-      <h2 className="text-2xl font-medium mb-8 text-gray-800 capitalize text-center">
-        {folder.replace(/-/g, " ")}
-      </h2>
+    <section className="px-5 sm:px-9 xl:px-20">
+      <div className="py-16 max-w-6xl mx-auto">
+        <h2 className="text-2xl font-medium mb-8 text-gray-800 capitalize text-center select-none">
+          {folder.replace(/-/g, " ")}
+        </h2>
 
-      <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-2 gap-2">
-        {images.map((url, idx) => (
-          <div key={idx} className="relative cursor-pointer rounded-md overflow-hidden shadow-sm group">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+          {images.map((url, idx) => (
+            <div
+              key={idx}
+              className="relative cursor-pointer rounded-md overflow-hidden shadow-md group"
+            >
+              <img
+                src={url}
+                alt={`Image ${idx + 1}`}
+                className="w-full aspect-square object-cover rounded-md transition-opacity duration-300 ease-in-out will-change-opacity group-hover:opacity-80"
+                onClick={() => setSelectedImage(url)}
+                draggable={false}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Fullscreen Overlay */}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-zoom-out select-none"
+            onClick={() => setSelectedImage(null)}
+          >
             <img
-              src={url}
-              alt={`Image ${idx + 1}`}
-              className="w-full aspect-square object-cover rounded-md transition-opacity duration-300 group-hover:opacity-80"
-              onClick={() => setSelectedImage(url)}
+              src={selectedImage}
+              alt="Enlarged"
+              className="max-w-[90vw] max-h-[90vh] rounded-lg shadow-xl transition-transform duration-300 ease-in-out"
+              draggable={false}
             />
           </div>
-        ))}
+        )}
       </div>
-
-      {/* Fullscreen Overlay */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-zoom-out"
-          onClick={() => setSelectedImage(null)}
-        >
-          <img
-            src={selectedImage}
-            alt="Enlarged"
-            className="max-w-[90vw] max-h-[90vh] rounded-lg shadow-xl transition-transform duration-300"
-          />
-        </div>
-      )}
-    </div>
     </section>
   );
 }

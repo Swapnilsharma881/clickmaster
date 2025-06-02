@@ -1,3 +1,4 @@
+import Footer from "@/section/Footer";
 import "../styles/globals.css";
 import Header from "@/section/Header";
 import LenisWrapper from "@/utils/LenisWrapper"; // We'll make this next
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
         <LenisWrapper>
           <Header />
           {children}
+          <Footer/>
         </LenisWrapper>
       </body>
     </html>

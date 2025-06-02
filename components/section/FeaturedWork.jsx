@@ -38,7 +38,7 @@ const FeaturedWork = () => {
   }, []);
 
   return (
-    <section className="relative bg-white py-16 px-4 sm:px-8">
+    <section className="relative bg-white py-16 px-5 sm:px-9 xl:px-20">
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center lg:mb-14 mb-12 text-primary">
         Featured Work
       </h2>
@@ -51,15 +51,19 @@ const FeaturedWork = () => {
             title={item.name}
             description={isLgOrAbove ? item.kahani : item.description}
             reverse={index % 2 !== 0}
+            index = {index}
           />
         ))}
       </div>
 
       {/* CTA Button */}
-      <div className="mt-16 text-center">
+      <div className="mt-16 text-center relative">
         <Link href="/portfolio">
-          <button className="px-6 py-3 bg-primary text-white text-lg font-medium rounded-xl shadow hover:bg-opacity-90 transition duration-300">
-            View More Work
+          <button className="group relative overflow-hidden px-3 py-2 bg-white text-primary border rounded-full">
+            <span className="relative z-10 transition-colors ease-in-out group-hover:text-white">
+              View More Work
+            </span>
+            <span className="absolute top-0 left-0 w-full h-full bg-hover transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out will-change-transform z-0"></span>
           </button>
         </Link>
       </div>

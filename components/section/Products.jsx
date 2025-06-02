@@ -1,13 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { supabase } from "app/lib/supabaseClient";
 import Product from "@/Product";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Categories() {
   const [categoryData, setCategoryData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const sectionRef = useRef(null);
 
   const categories = [
     "beverages",
@@ -31,7 +36,9 @@ export default function Categories() {
           .getPublicUrl(filePath);
 
         if (error) {
-          console.error(`Error getting URL for ${filePath}:`, error.message);
+          if (process.env.NODE_ENV === "development") {
+            console.error(`Error getting URL for ${filePath}:`, error.message);
+          }
           continue;
         }
 
@@ -49,10 +56,38 @@ export default function Categories() {
     fetchCategoryImages();
   }, []);
 
-  if (loading) return <div>Loading categories...</div>;
+  // Animate category cards on scroll
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from(".category-card", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [categoryData]);
+
+  if (loading) {
+    return (
+        <section className="px-5 sm:px-10 xl:px-20 w-full py-24 relative">
+
+        <p className="text-lg text-gray-500 animate-pulse">Loading categories...</p>
+      </section>
+    );
+  }
 
   return (
-    <section className="px-5 sm:px-10 xl:px-20  w-full py-24  relative">
+    <section ref={sectionRef} className="px-5 sm:px-10 xl:px-20 w-full py-24 relative">
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-bold text-gray-800 mb-3">
           Explore Our Categories
@@ -62,9 +97,11 @@ export default function Categories() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-16">
+      <div className="grid grid-cols-1">
         {categoryData.map((category) => (
-          <Product key={category.name} category={category} />
+            <div key={category.name} className="category-card lg:my-[30vh]">
+            <Product category={category} />
+          </div>
         ))}
       </div>
 

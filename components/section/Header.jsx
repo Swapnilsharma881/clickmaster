@@ -10,8 +10,8 @@ const Header = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="fixed bg-backGround top-0 z-40 w-full flex flex-col justify-between items-center py-4 px-5 sm:px-10 xl:px-20  sm:py-6 lg:py-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="fixed bg-backGround top-0 z-40 w-full px-5 sm:px-9 xl:px-20 py-4 sm:py-6 lg:py-4">
+      <div className="mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/">
           <h1 className="text-2xl font-display">
