@@ -79,27 +79,32 @@ export default function Categories() {
 
   if (loading) {
     return (
-        <section className="px-5 sm:px-10 xl:px-20 w-full py-24 relative">
-
-        <p className="text-lg text-gray-500 animate-pulse">Loading categories...</p>
+      <section className="px-5 sm:px-10 xl:px-20 w-full py-24 relative">
+        <p className="text-lg text-gray-500 animate-pulse">
+          Loading categories...
+        </p>
       </section>
     );
   }
 
   return (
-    <section ref={sectionRef} className="px-5 sm:px-10 xl:px-20 w-full py-24 relative">
+    <section
+      ref={sectionRef}
+      className="px-5 sm:px-10 xl:px-20 w-full py-24 relative"
+    >
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h2 className="text-3xl font-bold text-gray-800 mb-3">
           Explore Our Categories
         </h2>
         <p className="text-gray-600 text-base">
-          Discover curated selections of our finest work—from fashion to food, decor to earth-conscious design.
+          Discover curated selections of our finest work—from fashion to food,
+          decor to earth-conscious design.
         </p>
       </div>
 
       <div className="grid grid-cols-1">
         {categoryData.map((category) => (
-            <div key={category.name} className="category-card lg:my-[30vh]">
+          <div key={category.name} className="category-card lg:my-[30vh]">
             <Product category={category} />
           </div>
         ))}
@@ -107,8 +112,11 @@ export default function Categories() {
 
       <div className="mt-14 text-center">
         <Link href="/contact">
-          <button className="px-6 py-3 text-white bg-primary rounded-full hover:bg-opacity-90 transition">
-            Drop Your Query
+          <button className="group relative overflow-hidden px-6 py-3 bg-white text-primary border rounded-full">
+            <span className="relative z-10 transition-colors ease-in-out group-hover:text-white">
+              Drop Your Query
+            </span>
+            <span className="absolute top-0 left-0 w-full h-full bg-primary transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out will-change-transform z-0"></span>
           </button>
         </Link>
       </div>

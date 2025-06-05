@@ -60,6 +60,8 @@ function Product({ category }) {
         </div>
 
         <div className="flex justify-between items-center">
+
+          <p className="font-semibold text-lg text-gray-800">{category.name}</p>
           <Link href={`/categories/${category.name.toLowerCase()}`}>
             <Button
               className="underline text-sm text-primary hover:text-opacity-80 transition-colors duration-200"
@@ -67,7 +69,7 @@ function Product({ category }) {
             />
           </Link>
 
-          <p className="font-semibold text-lg text-gray-800">{category.name}</p>
+          
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import Footer from "@/section/Footer";
 import "../styles/globals.css";
 import Header from "@/section/Header";
 import LenisWrapper from "@/utils/LenisWrapper"; // We'll make this next
+import TransitionProvider  from "@/utils/TransitionProvider"
 
 export const metadata = {
   title: "Clikkmaster",
@@ -19,9 +20,11 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <LenisWrapper>
-          <Header />
+            <Header />
+          <TransitionProvider>
           {children}
           <Footer/>
+          </TransitionProvider>
         </LenisWrapper>
       </body>
     </html>
