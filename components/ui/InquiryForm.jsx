@@ -1,5 +1,7 @@
 "use client";
+
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const InquiryForm = () => {
   const [formData, setFormData] = useState({
@@ -55,19 +57,31 @@ const InquiryForm = () => {
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-800 mb-3">
           Work With Me
         </h2>
-        <p className="text-center text-gray-500 mb-2">
-          Have a project in mind? Let’s create something beautiful together.
-        </p>
 
-        {/* 📞 Contact Number */}
-        <p className="text-center text-sm text-gray-700 mb-10">
-          Or call me directly at{" "}
-          <a
-            href="tel:+919876543210"
-            className="text-primary font-medium hover:underline"
+        {/* 👇 Animated Text Line */}
+        <p className="text-center text-gray-500 mb-2 flex justify-center items-center gap-1">
+          Have a project in mind? Let’s Connect
+          <motion.span
+            className="inline-block"
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ repeat: Infinity, duration: 1 }}
           >
-            +91 98765 43210
-          </a>
+            .
+          </motion.span>
+          <motion.span
+            className="inline-block"
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ repeat: Infinity, duration: 1, delay: 0.2 }}
+          >
+            .
+          </motion.span>
+          <motion.span
+            className="inline-block"
+            animate={{ opacity: [0, 1, 0] }}
+            transition={{ repeat: Infinity, duration: 1, delay: 0.4 }}
+          >
+            .
+          </motion.span>
         </p>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -108,7 +122,7 @@ const InquiryForm = () => {
           {/* Contact Number */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Contact Number
+              Conatct
             </label>
             <input
               type="tel"
@@ -124,7 +138,7 @@ const InquiryForm = () => {
           {/* Project Type */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Project Type
+              Project
             </label>
             <select
               name="projectType"
@@ -144,7 +158,7 @@ const InquiryForm = () => {
           {/* Time Slot */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Preferred Time Slot
+              Best Time To Connect...
             </label>
             <select
               name="timeSlot"
@@ -211,7 +225,7 @@ const InquiryForm = () => {
             )}
           </button>
 
-          {/* Status */}
+          {/* Status Message */}
           {status && (
             <p className="text-center mt-4 text-sm text-gray-600">{status}</p>
           )}

@@ -6,7 +6,6 @@ import { supabase } from "app/lib/supabaseClient";
 export default function DynamicGallery({ folder }) {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     async function fetchImages() {
@@ -48,37 +47,21 @@ export default function DynamicGallery({ folder }) {
           {folder.replace(/-/g, " ")}
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4">
           {images.map((url, idx) => (
             <div
               key={idx}
-              className="relative cursor-pointer rounded-md overflow-hidden shadow-md group"
+              className="relative rounded-md overflow-hidden shadow-md"
             >
               <img
                 src={url}
                 alt={`Image ${idx + 1}`}
-                className="w-full aspect-square object-cover rounded-md transition-opacity duration-300 ease-in-out will-change-opacity group-hover:opacity-80"
-                onClick={() => setSelectedImage(url)}
+                className="w-full aspect-square object-cover rounded-md"
                 draggable={false}
               />
             </div>
           ))}
         </div>
-
-        {/* Fullscreen Overlay */}
-        {selectedImage && (
-          <div
-            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 cursor-zoom-out select-none"
-            onClick={() => setSelectedImage(null)}
-          >
-            <img
-              src={selectedImage}
-              alt="Enlarged"
-              className="max-w-[90vw] max-h-[90vh] rounded-lg shadow-xl transition-transform duration-300 ease-in-out"
-              draggable={false}
-            />
-          </div>
-        )}
       </div>
     </section>
   );

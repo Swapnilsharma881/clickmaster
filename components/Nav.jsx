@@ -13,7 +13,7 @@ const Nav = () => {
           <li key={index}>
             <Link
               href={link.path}
-              className="hover:text-black transition-colors duration-200"
+              className="hover:text-black lg:text-[10px] transition-colors duration-200"
             >
               {link.name}
             </Link>

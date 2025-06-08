@@ -10,35 +10,40 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-backGround text-white sm:px-1 lg:px-36 py-20">
-      <div className="max-w-6xl mx-auto flex flex-col justify-between items-center gap-4">
-
+      <div className="max-w-6xl mx-auto flex flex-col justify-between items-center gap-4 z-50 relative">
+        
         {/* Social Links */}
         <div className="flex gap-6 text-lg">
+          {/* Email Icon (hidden on lg and up) */}
           <a
-            href="mailto:inquiry.clickkmaster@gmail.com"
-            className="group relative transition-colors duration-300 ease-in-out"
+            href="mailto:sunny@clickkmaster.in"
+            className="group relative transition-colors duration-300 ease-in-out z-50 block lg:hidden"
             aria-label="Email"
           >
             <FaEnvelope
-              className="text-[#311514] group-hover:text-[#D14836] transition-colors duration-300 ease-in-out"
+              className="text-[#311514] group-hover:text-[#D14836] transition-colors duration-300 ease-in-out border border-white/20 p-1 rounded-full"
             />
           </a>
+
+          {/* Instagram */}
           <a
             href="https://instagram.com/clickkmaster"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative transition-colors duration-300 ease-in-out"
+            className="group relative transition-colors duration-300 ease-in-out z-50"
             aria-label="Instagram"
           >
             <FaInstagram
               className="text-[#311514] group-hover:text-[#E1306C] transition-colors duration-300 ease-in-out"
             />
           </a>
+
+          {/* WhatsApp */}
           <a
             href={getWhatsAppLink(whatsappNumber, whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative transition-colors duration-300 ease-in-out"
+            className="group relative transition-colors duration-300 ease-in-out z-50"
             aria-label="WhatsApp"
           >
             <FaWhatsapp

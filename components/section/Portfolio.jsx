@@ -2,20 +2,20 @@
 
 import { useEffect, useState, useRef } from "react";
 import { supabase } from "app/lib/supabaseClient";
-import Product from "@/Product";
+import Categories from "@/Categories";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Categories() {
+export default function Portfolio() {
   const [categoryData, setCategoryData] = useState([]);
   const [loading, setLoading] = useState(true);
   const sectionRef = useRef(null);
 
   const categories = [
-    "beverages",
+    "sweets",
     "containers",
     "decor",
     "earthmatters",
@@ -51,6 +51,7 @@ export default function Categories() {
 
       setCategoryData(results);
       setLoading(false);
+
     }
 
     fetchCategoryImages();
@@ -92,7 +93,7 @@ export default function Categories() {
       ref={sectionRef}
       className="px-5 sm:px-10 xl:px-20 w-full py-24 relative"
     >
-      <div className="max-w-3xl mx-auto text-center mb-10">
+      <div className="max-w-3xl mx-auto text-center mb-10 relative">
         <h2 className="text-3xl font-bold text-gray-800 mb-3">
           Explore Our Categories
         </h2>
@@ -102,15 +103,15 @@ export default function Categories() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1">
-        {categoryData.map((category) => (
-          <div key={category.name} className="category-card lg:my-[30vh]">
-            <Product category={category} />
+      <div className=" relative grid gap-12 md:gap-15 lg:gap-10 grid-cols-1">
+        {categoryData.map((category, index) => (
+          <div key={category.name} className="relative category-card lg:my-[30vh]">
+            <Categories category={category} index = {index}/>
           </div>
         ))}
       </div>
 
-      <div className="mt-14 text-center">
+      <div className="relative mt-14 text-center">
         <Link href="/contact">
           <button className="group relative overflow-hidden px-6 py-3 bg-white text-primary border rounded-full">
             <span className="relative z-10 transition-colors ease-in-out group-hover:text-white">

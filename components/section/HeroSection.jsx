@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useRef, useEffect, useState } from "react";
 import { supabase } from "app/lib/supabaseClient";
 import gsap from "gsap";
@@ -6,7 +7,9 @@ import gsap from "gsap";
 const HeroSection = () => {
   const heroRef = useRef(null);
   const [heroImage, setHeroImage] = useState("");
+  const [imageLoaded, setImageLoaded] = useState(false); // ✅ Track image load
 
+  // Fetch hero image from Supabase
   useEffect(() => {
     const fetchHeroImage = async () => {
       const { data, error } = await supabase.storage
@@ -24,27 +27,30 @@ const HeroSection = () => {
     fetchHeroImage();
   }, []);
 
+  // Animate text only after image is loaded
   useEffect(() => {
-    if (!heroRef.current) return;
+    if (!heroRef.current || !imageLoaded) return;
 
     const ctx = gsap.context(() => {
+      // Title animation: slow scale-in
       gsap.fromTo(
         "#hero-text",
-        { y: -100, opacity: 0, scale: 0.95 },
+        { scale: 0, opacity: 0 },
         {
-          duration: 1.8,
-          y: 0,
-          opacity: 1,
+          duration: 2.5,
           scale: 1,
-          ease: "bounce.out",
+          opacity: 1,
+          ease: "power4.out",
         }
       );
+
+      // Subtitle animation: fade in with slight upward motion
       gsap.fromTo(
         "#hero-subtext",
-        { y: -50, opacity: 0 },
+        { y: 50, opacity: 0 },
         {
-          delay: 0.5,
-          duration: 1.2,
+          delay: 1.5,
+          duration: 1.8,
           y: 0,
           opacity: 1,
           ease: "power3.out",
@@ -53,8 +59,9 @@ const HeroSection = () => {
     }, heroRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [imageLoaded]);
 
+  // Parallax background scroll effect
   useEffect(() => {
     const handleScroll = () => {
       if (!heroRef.current) return;
@@ -72,51 +79,37 @@ const HeroSection = () => {
       className="relative w-full h-screen overflow-hidden bg-black"
       style={{ backgroundPosition: "center", backgroundSize: "cover" }}
     >
-      {/* Hero Background Image */}
+      {/* Background Image with fade-in */}
       {heroImage && (
         <>
           <img
             src={heroImage}
             alt="Hero background"
-            className="
-              absolute inset-0 w-full h-full
-              object-cover
-              sm:object-left
-              transition-all duration-700 ease-in-out
-              filter brightness-75
-            "
+            className={`
+              absolute inset-0 w-full h-full object-cover sm:object-left
+              filter brightness-75 transition-opacity duration-1000 ease-out
+              ${imageLoaded ? "opacity-100" : "opacity-0"}
+            `}
+            onLoad={() => setImageLoaded(true)}
           />
-          {/* Dark overlay for better text contrast */}
+
+          {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-black bg-opacity-40 pointer-events-none" />
         </>
       )}
 
-      {/* Hero Text */}
-      <div className="relative z-20  flex flex-col justify-center items-center h-full px-5 sm:px-10 xl:px-20 text-center text-white">
+      {/* Hero Text Content */}
+      <div className="relative z-20 flex flex-col justify-center items-center h-full px-5 sm:px-10 xl:px-20 text-center text-white">
         <h1
           id="hero-text"
-          className="
-            text-white 
-            text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 
-            font-extrabold max-w-5xl 
-            tracking-[0.15em] sm:tracking-[0.15em] md:tracking-[0.15em] lg:tracking-[0.15em] xl:tracking-[0.15em]
-            leading-[1.1] sm:leading-[1.2] xl:leading-[1.3]
-          "
-          style={{ wordSpacing: "0.25em" }}
+          className="opacity-0 translate-y-12 text-white text-4xl sm:text-5xl md:text-6xl ..."
         >
-          Framing Taste, Defining Excellence
+          Serving Taste Through the Lens.  
         </h1>
+
         <p
           id="hero-subtext"
-          className="
-            mt-4 
-            text-h1 text-primary 
-            sm:text-lg md:text-xl lg:text-xl xl:text-2xl 
-            max-w-2xl opacity-0 
-            tracking-wide sm:tracking-wide md:tracking-wide lg:tracking-wide xl:tracking-wide
-            leading-relaxed sm:leading-relaxed md:leading-relaxed lg:leading-relaxed xl:leading-relaxed
-          "
-          style={{ wordSpacing: "0.15em" }}
+          className="opacity-0 translate-y-12 mt-4 text-h1 text-primary sm:text-lg ..."
         >
           Expertly crafted imagery for gourmet dishes and fine products.
         </p>

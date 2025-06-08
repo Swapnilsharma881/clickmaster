@@ -34,16 +34,17 @@ const Header = () => {
         </div>
 
         {/* Mobile Nav Toggle */}
-        <div className="lg:hidden">
-          <button onClick={toggleMenu}>
-            <Image
-              src={isOpen ? "/icons/closeMenu.svg" : "/icons/burgerMenu.svg"}
-              alt="Mobile Menu Toggle"
-              width={24}
-              height={24}
-            />
-          </button>
-        </div>
+      <div className="lg:hidden">
+        <button onClick={toggleMenu}>
+          <Image
+            src={isOpen ? "/icons/closeMenu.svg" : "/icons/burgerMenu.svg"}
+            alt="Mobile Menu Toggle"
+            width={24}
+            height={24}
+            priority
+          />
+        </button>
+      </div>
       </div>
 
       {/* Mobile Nav Links */}

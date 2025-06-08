@@ -11,7 +11,6 @@ const Home =  () => {
     <HeroSection/>
     <FeaturedWork/>
     <MeetTheMan/>
-    <BrandMarquee/>
     </>
   )
 }

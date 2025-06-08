@@ -1,4 +1,4 @@
-import DynamicGallery from '@/section/DynamicGallery'
+import DynamicGallery from '@/section/Category'
 
 export default function CategoryPage({ params }) {
   const { category } = params

@@ -1,4 +1,4 @@
-import Products from "@/section/Products";
+import Products from "@/section/Portfolio";
 
 const Portfolio = () => {
     return (

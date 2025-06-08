@@ -19,7 +19,7 @@ const FeaturedWork = () => {
         console.error("Error fetching images:", error.message);
         return;
       }
-
+      console.log(data)
       setFeaturedImages(data);
     };
 
