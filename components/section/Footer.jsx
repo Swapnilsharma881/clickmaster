@@ -21,7 +21,7 @@ const Footer = () => {
             aria-label="Email"
           >
             <FaEnvelope
-              className="text-[#311514] group-hover:text-[#D14836] transition-colors duration-300 ease-in-out border border-white/20 p-1 rounded-full"
+              className="text-[#311514] group-hover:text-[#D14836] transition-colors duration-300 ease-in-out "
             />
           </a>
 
