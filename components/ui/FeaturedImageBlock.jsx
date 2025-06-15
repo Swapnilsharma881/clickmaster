@@ -16,7 +16,7 @@ const FeaturedImageBlock = ({ image, title, description, reverse }) => {
     <div className="relative grid grid-cols-1 gap-3 sm:gap-6 lg:grid-cols-2 w-full max-w-6xl mx-auto  h-auto min-h-[500px]">
       <div
         ref={imageContainer}
-        className={`relative h-[500px] sm:h-[700px] lg:h-[400px] overflow-hidden ${
+        className={`relative h-[500px] sm:h-[700px] lg:h-[800px] overflow-hidden ${
           reverse ? "lg:order-2" : "lg:order-1"
         }`}
       >
@@ -35,7 +35,7 @@ const FeaturedImageBlock = ({ image, title, description, reverse }) => {
           reverse ? "lg:order-1" : "lg:order-2"
         }`}
       >
-        <p className="text-base ">{description}</p>
+        <p className="text-base lg:text-xl">{description}</p>
       </div>
     </div>
   );
