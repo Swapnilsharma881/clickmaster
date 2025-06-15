@@ -10,8 +10,8 @@ const Header = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="fixed bg-backGround top-0 z-40 w-full flex flex-col justify-between items-center py-4 px-5 sm:px-10 xl:px-20  sm:py-6 lg:py-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="fixed bg-backGround top-0 z-40 w-full px-5 sm:px-9 xl:px-20 py-4 sm:py-6 lg:py-4">
+      <div className="mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/">
           <h1 className="text-2xl font-display">
@@ -34,16 +34,17 @@ const Header = () => {
         </div>
 
         {/* Mobile Nav Toggle */}
-        <div className="lg:hidden">
-          <button onClick={toggleMenu}>
-            <Image
-              src={isOpen ? "/icons/closeMenu.svg" : "/icons/burgerMenu.svg"}
-              alt="Mobile Menu Toggle"
-              width={24}
-              height={24}
-            />
-          </button>
-        </div>
+      <div className="lg:hidden">
+        <button onClick={toggleMenu}>
+          <Image
+            src={isOpen ? "/icons/closeMenu.svg" : "/icons/burgerMenu.svg"}
+            alt="Mobile Menu Toggle"
+            width={24}
+            height={24}
+            priority
+          />
+        </button>
+      </div>
       </div>
 
       {/* Mobile Nav Links */}
