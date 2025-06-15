@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://clickkmaster.in
+
+# Sitemaps
+Sitemap: https://clickkmaster.in/sitemap.xml
