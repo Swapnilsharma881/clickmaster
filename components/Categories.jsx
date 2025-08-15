@@ -42,7 +42,7 @@ function Categories({ category, index }) {
       {/* Image with parallax only on lg+ screens */}
       <div
         ref={imageWrapperRef}
-        className="relative h-[450px] sm:h-[700px] lg:h-[300px] overflow-hidden rounded-lg"
+        className="relative h-[450px] sm:h-[700px] lg:h-[500px] overflow-hidden rounded-lg"
       >
         {isLargeScreen ? (
           <motion.div

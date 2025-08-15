@@ -6,33 +6,32 @@ import gsap from "gsap";
 
 const HeroSection = () => {
   const heroRef = useRef(null);
-  const [heroImage, setHeroImage] = useState("");
-  const [imageLoaded, setImageLoaded] = useState(false); // ✅ Track image load
+  const [heroVideo, setHeroVideo] = useState("");
+  const [videoLoaded, setVideoLoaded] = useState(false); // ✅ Track video load
 
-  // Fetch hero image from Supabase
+  // Fetch hero video from Supabase
   useEffect(() => {
-    const fetchHeroImage = async () => {
+    const fetchHeroVideo = async () => {
       const { data, error } = await supabase.storage
         .from("personal")
-        .getPublicUrl("hero.webp");
+        .getPublicUrl("heroVideo.webm");
 
       if (error) {
-        console.error("Error fetching hero image:", error.message);
+        console.error("Error fetching hero video:", error.message);
         return;
       }
 
-      setHeroImage(data.publicUrl);
+      setHeroVideo(data.publicUrl); // ✅ Correct access
     };
 
-    fetchHeroImage();
+    fetchHeroVideo();
   }, []);
 
-  // Animate text only after image is loaded
+  // Animate text only after video is loaded
   useEffect(() => {
-    if (!heroRef.current || !imageLoaded) return;
+    if (!heroRef.current || !videoLoaded) return;
 
     const ctx = gsap.context(() => {
-      // Title animation: slow scale-in
       gsap.fromTo(
         "#hero-text",
         { scale: 0, opacity: 0 },
@@ -44,7 +43,6 @@ const HeroSection = () => {
         }
       );
 
-      // Subtitle animation: fade in with slight upward motion
       gsap.fromTo(
         "#hero-subtext",
         { y: 50, opacity: 0 },
@@ -59,7 +57,7 @@ const HeroSection = () => {
     }, heroRef);
 
     return () => ctx.revert();
-  }, [imageLoaded]);
+  }, [videoLoaded]);
 
   // Parallax background scroll effect
   useEffect(() => {
@@ -79,18 +77,21 @@ const HeroSection = () => {
       className="relative w-full h-screen overflow-hidden bg-black"
       style={{ backgroundPosition: "center", backgroundSize: "cover" }}
     >
-      {/* Background Image with fade-in */}
-      {heroImage && (
+      {/* Background Video */}
+      {heroVideo && (
         <>
-          <img
-            src={heroImage}
-            alt="Hero background"
+          <video
+            src={heroVideo}
             className={`
               absolute inset-0 w-full h-full object-cover sm:object-left
               filter brightness-75 transition-opacity duration-1000 ease-out
-              ${imageLoaded ? "opacity-100" : "opacity-0"}
+              ${videoLoaded ? "opacity-100" : "opacity-0"}
             `}
-            onLoad={() => setImageLoaded(true)}
+            autoPlay
+            loop
+            muted
+            playsInline
+            onLoadedData={() => setVideoLoaded(true)}
           />
 
           {/* Dark overlay for text readability */}
@@ -100,16 +101,17 @@ const HeroSection = () => {
 
       {/* Hero Text Content */}
       <div className="relative z-20 flex flex-col justify-center items-center h-full px-5 sm:px-10 xl:px-20 text-center text-white">
-        <h1
-          id="hero-text"
-          className="opacity-0 translate-y-12 text-white text-4xl sm:text-5xl md:text-6xl ..."
-        >
-          Serving Taste Through the Lens.  
-        </h1>
+  <h1
+  id="hero-text"
+  className="translate-y-12 text-white/30 text-4xl sm:text-5xl md:text-6xl font-bold"
+>
+  Serving Taste Through the Lens.
+</h1>
+
 
         <p
           id="hero-subtext"
-          className="opacity-0 translate-y-12 mt-4 text-h1 text-primary sm:text-lg ..."
+          className="opacity-0 translate-y-12 mt-4 text-h1/30 sm:text-lg ..."
         >
           Expertly crafted imagery for gourmet dishes and fine products.
         </p>

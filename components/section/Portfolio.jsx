@@ -16,8 +16,7 @@ export default function Portfolio() {
 
   const categories = [
     "sweets",
-    "containers",
-    "decor",
+    "drinks",
     "earthmatters",
     "fashion",
     "food",
