@@ -14,11 +14,14 @@ const Header = () => {
       <div className="mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/">
-          <h1 className="text-2xl font-display">
-            Clickk<span className="text-primary">master</span>
-          </h1>
-          
-        </Link>
+  <Image
+    src="/clickkmaster.png" // path inside public folder
+    alt="Clickkmaster Logo"
+    width={120} // adjust as needed
+    height={40} // adjust as needed
+    priority
+  />
+</Link>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex gap-10 items-center">
