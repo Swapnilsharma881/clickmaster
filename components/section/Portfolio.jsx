@@ -15,11 +15,11 @@ export default function Portfolio() {
   const sectionRef = useRef(null);
 
   const categories = [
-    "sweets",
-    "drinks",
-    "earthmatters",
-    "fashion",
     "food",
+    "drinks",
+    "sweets",
+    "earthmatters",
+    "clothings & brands",
   ];
 
   useEffect(() => {

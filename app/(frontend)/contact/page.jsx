@@ -42,19 +42,3 @@ export default function ContactPage() {
     </main>
   );
 }
-// This page is a Server Component, but it can include Client Components like InquiryForm
-// without needing 'use client' at the top level.
-// The InquiryForm component can handle client-side interactions like form submission.
-// This allows you to keep the benefits of server-side rendering while still using client-side features where necessary.
-// The metadata is set up for SEO and social sharing, ensuring the page is indexed correctly.
-// The InquiryForm component can be a separate file in the ui directory, handling the form logic and submission.
-// This approach keeps the page clean and focused on its primary purpose: providing a contact form for users to reach out.
-// The metadata includes Open Graph and Twitter Card data for better visibility on social media platforms.
-// The page is structured to be SEO-friendly, with clear titles and descriptions.
-// The main function returns the InquiryForm component wrapped in a main element with padding for styling.
-// This structure allows for easy expansion in the future, such as adding more sections or components if needed.
-// The page is designed to be responsive and user-friendly, ensuring a good experience on both desktop and mobile devices.
-// The metadata is designed to be dynamic, allowing for easy updates in the future if needed.
-// The page can be easily extended with additional components or sections as needed.
-// The use of Tailwind CSS classes ensures a consistent and modern design across the application.
-// The page is ready for deployment and can be tested locally to ensure all components work as expected.  

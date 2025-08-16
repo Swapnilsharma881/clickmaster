@@ -33,7 +33,7 @@ function Categories({ category, index }) {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, -400]);
 
-  const imageClass = `object-cover transition-opacity duration-1000 ease-out ${
+  const imageClass = `object-cover object-top transition-opacity duration-1000 ease-out ${
     loaded ? "opacity-100" : "opacity-0"
   }`;
 
@@ -41,8 +41,8 @@ function Categories({ category, index }) {
     <div className="relative grid grid-cols-1 gap-5 sm:gap-8">
       {/* Image with parallax only on lg+ screens */}
       <div
-        ref={imageWrapperRef}
-        className="relative h-[450px] sm:h-[700px] lg:h-[500px] overflow-hidden rounded-lg"
+        ref={imageWrapperRef} 
+        className="relative h-[450px] sm:h-[700px] lg:h-[600px] overflow-hidden rounded-lg"
       >
         {isLargeScreen ? (
           <motion.div
