@@ -16,7 +16,7 @@ const FeaturedImageBlock = ({ image, title, description, reverse, index }) => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
   // ✅ Tailwind classes for fade-in effect
-  const imageClass = `object-cover relative transition-opacity duration-1000 ease-out ${
+  const imageClass = `object-cover object-top relative transition-opacity duration-1000 ease-out ${
     loaded ? "opacity-100" : "opacity-0"
   } ${index === 0 ? "lg:object-top" : ""}`;
 
@@ -25,7 +25,7 @@ const FeaturedImageBlock = ({ image, title, description, reverse, index }) => {
       {/* Image Section */}
       <div
         ref={imageContainer}
-        className={`relative h-[500px] sm:h-[700px] lg:h-[400px] overflow-hidden ${
+        className={`relative h-[500px] sm:h-[700px] lg:h-[500px] overflow-hidden ${
           reverse ? "lg:order-2" : "lg:order-1"
         }`}
       >
